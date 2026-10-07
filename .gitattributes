@@ -1,0 +1,35 @@
+# 统一换行符与二进制文件处理，避免跨平台协作时 diff 爆炸
+
+# 默认：由 Git 自动判断文本/二进制，文本入库统一为 LF
+* text=auto
+
+# 源码与文档：仓库内统一 LF
+*.py      text eol=lf
+*.md      text eol=lf
+*.txt     text eol=lf
+*.json    text eol=lf
+*.yml     text eol=lf
+*.yaml    text eol=lf
+*.gitignore  text eol=lf
+
+# Windows 脚本保留 CRLF
+*.bat     text eol=crlf
+*.ps1     text eol=crlf
+*.cmd     text eol=crlf
+
+# 二进制：不做换行符转换，且不参与 diff
+*.png     binary
+*.jpg     binary
+*.jpeg    binary
+*.gif     binary
+*.pdf     binary
+*.docx    binary
+*.xlsx    binary
+*.npy     binary
+*.npz     binary
+*.pt      binary
+*.pth     binary
+
+# 图表与 Notebook 不参与语言统计
+results/figures/**  linguist-generated=true
+*.ipynb             linguist-documentation=true
